@@ -4,12 +4,18 @@
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
   --color-primary-active: #1d4ed8;
+  --color-primary-dark: #1e40af;
+  --color-primary-light: rgba(59, 130, 246, 0.1);
 
   /* Colors - Background */
   --color-bg-base: #ffffff;
   --color-bg-elevated: #f9fafb;
   --color-bg-sunken: #f3f4f6;
   --color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Alias for admin components */
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
 
   /* Colors - Text */
   --color-text-primary: #111827;
@@ -20,12 +26,25 @@
   /* Colors - Border */
   --color-border: #e5e7eb;
   --color-border-hover: #d1d5db;
+  --color-border-light: #f3f4f6;
 
   /* Colors - Semantic */
   --color-success: #10b981;
+  --color-success-light: rgba(16, 185, 129, 0.1);
+  --color-success-dark: #059669;
   --color-warning: #f59e0b;
+  --color-warning-light: rgba(245, 158, 11, 0.1);
+  --color-warning-dark: #d97706;
   --color-error: #ef4444;
+  --color-error-light: rgba(239, 68, 68, 0.1);
+  --color-error-dark: #dc2626;
   --color-info: #3b82f6;
+  --color-info-light: rgba(59, 130, 246, 0.1);
+  --color-info-dark: #2563eb;
+
+  /* Colors - Code */
+  --color-code-bg: #1e1e1e;
+  --color-code-text: #d4d4d4;
 
   /* Colors - Rarity (for game items) */
   --color-rarity-common: #9ca3af;
@@ -103,6 +122,10 @@
   --color-bg-sunken: #0f172a;
   --color-bg-overlay: rgba(0, 0, 0, 0.7);
 
+  /* Alias for admin components */
+  --color-background: #0f172a;
+  --color-surface: #1f2937;
+
   /* Colors - Text */
   --color-text-primary: #f9fafb;
   --color-text-secondary: #d1d5db;
@@ -112,6 +135,7 @@
   /* Colors - Border */
   --color-border: #374151;
   --color-border-hover: #4b5563;
+  --color-border-light: #2d3748;
 
   /* Shadows (darker for dark mode) */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);

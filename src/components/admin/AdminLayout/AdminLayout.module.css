@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebarHeader {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.logo:hover {
+  color: var(--color-primary);
+}
+
+.gameName {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.navSection {
+  margin-bottom: 1.5rem;
+}
+
+.navSectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.navLink:hover {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+.navLinkActive {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-primary);
+  padding-left: calc(1rem - 3px);
+}
+
+.navIcon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.sidebarFooter {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.envBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-success-light);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-success-dark);
+}
+
+.envDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-success);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
