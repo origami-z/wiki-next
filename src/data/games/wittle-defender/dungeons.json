@@ -1,0 +1,551 @@
+[
+  {
+    "id": "dungeon-001",
+    "slug": "ember-fortress",
+    "name": "Ember Fortress",
+    "description": "A volcanic fortress guarded by fire elementals. Bring ice heroes for advantage.",
+    "image": "/images/dungeons/ember-fortress.png",
+    "type": "story",
+    "difficulty": "normal",
+    "recommendedLevel": 15,
+    "recommendedHeroes": ["hero-002", "hero-005"],
+    "rewards": [
+      {
+        "itemId": "item-001",
+        "itemName": "Fire Crystal",
+        "quantity": 10,
+        "dropRate": 100,
+        "rarity": "rare"
+      },
+      {
+        "itemId": "item-002",
+        "itemName": "Gold",
+        "quantity": 5000,
+        "dropRate": 100
+      },
+      {
+        "itemId": "item-003",
+        "itemName": "Hero Shard (Ember Knight)",
+        "quantity": 5,
+        "dropRate": 25,
+        "rarity": "legendary"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Outer Gates",
+        "enemies": ["hero-001"],
+        "rewards": [
+          {
+            "itemId": "item-002",
+            "itemName": "Gold",
+            "quantity": 1000,
+            "dropRate": 100
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Inner Courtyard",
+        "enemies": ["hero-001", "hero-017"],
+        "rewards": [
+          {
+            "itemId": "item-001",
+            "itemName": "Fire Crystal",
+            "quantity": 3,
+            "dropRate": 100,
+            "rarity": "rare"
+          }
+        ]
+      },
+      {
+        "stageNumber": 3,
+        "name": "Throne Room",
+        "enemies": ["hero-001", "hero-017"],
+        "boss": "hero-010",
+        "rewards": [
+          {
+            "itemId": "item-003",
+            "itemName": "Hero Shard (Ember Knight)",
+            "quantity": 5,
+            "dropRate": 25,
+            "rarity": "legendary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-002",
+    "slug": "frozen-caverns",
+    "name": "Frozen Caverns",
+    "description": "Deep ice caves inhabited by frost creatures. Fire heroes have the advantage.",
+    "image": "/images/dungeons/frozen-caverns.png",
+    "type": "story",
+    "difficulty": "hard",
+    "recommendedLevel": 25,
+    "recommendedHeroes": ["hero-001", "hero-010", "hero-017"],
+    "rewards": [
+      {
+        "itemId": "item-004",
+        "itemName": "Ice Shard",
+        "quantity": 15,
+        "dropRate": 100,
+        "rarity": "epic"
+      },
+      {
+        "itemId": "item-005",
+        "itemName": "Frozen Core",
+        "quantity": 3,
+        "dropRate": 50,
+        "rarity": "legendary"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Entrance Hall",
+        "enemies": ["hero-002"],
+        "rewards": [
+          {
+            "itemId": "item-004",
+            "itemName": "Ice Shard",
+            "quantity": 5,
+            "dropRate": 100,
+            "rarity": "epic"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Crystal Chamber",
+        "enemies": ["hero-002", "hero-005"],
+        "boss": "hero-002",
+        "rewards": [
+          {
+            "itemId": "item-005",
+            "itemName": "Frozen Core",
+            "quantity": 3,
+            "dropRate": 50,
+            "rarity": "legendary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-003",
+    "slug": "lightning-temple",
+    "name": "Lightning Temple",
+    "description": "Ancient temple crackling with electrical energy. Speed is essential here.",
+    "image": "/images/dungeons/lightning-temple.png",
+    "type": "challenge",
+    "difficulty": "expert",
+    "recommendedLevel": 40,
+    "recommendedHeroes": ["hero-003", "hero-016"],
+    "rewards": [
+      {
+        "itemId": "item-006",
+        "itemName": "Thunder Stone",
+        "quantity": 20,
+        "dropRate": 100,
+        "rarity": "epic"
+      },
+      {
+        "itemId": "item-007",
+        "itemName": "Epic Equipment Box",
+        "quantity": 1,
+        "dropRate": 100,
+        "rarity": "epic"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Storm Approach",
+        "enemies": ["hero-003", "hero-016"],
+        "rewards": [
+          {
+            "itemId": "item-006",
+            "itemName": "Thunder Stone",
+            "quantity": 10,
+            "dropRate": 100,
+            "rarity": "epic"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Temple Summit",
+        "enemies": ["hero-003", "hero-016"],
+        "boss": "hero-003",
+        "rewards": [
+          {
+            "itemId": "item-007",
+            "itemName": "Epic Equipment Box",
+            "quantity": 1,
+            "dropRate": 100,
+            "rarity": "epic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-004",
+    "slug": "toxic-swamp",
+    "name": "Toxic Swamp",
+    "description": "Poisonous marshlands teeming with venomous creatures. Bring healers and cleansers.",
+    "image": "/images/dungeons/toxic-swamp.png",
+    "type": "event",
+    "difficulty": "hard",
+    "recommendedLevel": 30,
+    "recommendedHeroes": ["hero-005", "hero-006", "hero-012"],
+    "rewards": [
+      {
+        "itemId": "item-008",
+        "itemName": "Poison Extract",
+        "quantity": 25,
+        "dropRate": 100,
+        "rarity": "rare"
+      },
+      {
+        "itemId": "item-009",
+        "itemName": "Hero Shard (Poison Witch)",
+        "quantity": 10,
+        "dropRate": 30,
+        "rarity": "epic"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Murky Waters",
+        "enemies": ["hero-011"],
+        "rewards": [
+          {
+            "itemId": "item-008",
+            "itemName": "Poison Extract",
+            "quantity": 10,
+            "dropRate": 100,
+            "rarity": "rare"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Venom Nest",
+        "enemies": ["hero-004", "hero-011"],
+        "boss": "hero-004",
+        "rewards": [
+          {
+            "itemId": "item-009",
+            "itemName": "Hero Shard (Poison Witch)",
+            "quantity": 10,
+            "dropRate": 30,
+            "rarity": "epic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-005",
+    "slug": "shadow-realm",
+    "name": "Shadow Realm",
+    "description": "Dark dimension ruled by shadow entities. Holy heroes shine brightest here.",
+    "image": "/images/dungeons/shadow-realm.png",
+    "type": "raid",
+    "difficulty": "nightmare",
+    "recommendedLevel": 60,
+    "recommendedHeroes": ["hero-006", "hero-013"],
+    "rewards": [
+      {
+        "itemId": "item-010",
+        "itemName": "Dark Essence",
+        "quantity": 50,
+        "dropRate": 100,
+        "rarity": "mythic"
+      },
+      {
+        "itemId": "item-011",
+        "itemName": "Mythic Hero Chest",
+        "quantity": 1,
+        "dropRate": 5,
+        "rarity": "mythic"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Void Portal",
+        "enemies": ["hero-014"],
+        "rewards": [
+          {
+            "itemId": "item-010",
+            "itemName": "Dark Essence",
+            "quantity": 15,
+            "dropRate": 100,
+            "rarity": "mythic"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Shadowlands",
+        "enemies": ["hero-007", "hero-014"],
+        "rewards": [
+          {
+            "itemId": "item-010",
+            "itemName": "Dark Essence",
+            "quantity": 20,
+            "dropRate": 100,
+            "rarity": "mythic"
+          }
+        ]
+      },
+      {
+        "stageNumber": 3,
+        "name": "Darkness Throne",
+        "enemies": ["hero-007", "hero-014"],
+        "boss": "hero-007",
+        "rewards": [
+          {
+            "itemId": "item-011",
+            "itemName": "Mythic Hero Chest",
+            "quantity": 1,
+            "dropRate": 5,
+            "rarity": "mythic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-006",
+    "slug": "forest-labyrinth",
+    "name": "Forest Labyrinth",
+    "description": "Enchanted forest maze with nature guardians. Fire cuts through vegetation quickly.",
+    "image": "/images/dungeons/forest-labyrinth.png",
+    "type": "challenge",
+    "difficulty": "normal",
+    "recommendedLevel": 20,
+    "recommendedHeroes": ["hero-001", "hero-010"],
+    "rewards": [
+      {
+        "itemId": "item-012",
+        "itemName": "Nature Seed",
+        "quantity": 30,
+        "dropRate": 100,
+        "rarity": "common"
+      },
+      {
+        "itemId": "item-013",
+        "itemName": "Equipment Upgrade Stone",
+        "quantity": 5,
+        "dropRate": 75,
+        "rarity": "rare"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Overgrown Path",
+        "enemies": ["hero-015"],
+        "rewards": [
+          {
+            "itemId": "item-012",
+            "itemName": "Nature Seed",
+            "quantity": 15,
+            "dropRate": 100,
+            "rarity": "common"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Ancient Grove",
+        "enemies": ["hero-008", "hero-015"],
+        "boss": "hero-008",
+        "rewards": [
+          {
+            "itemId": "item-013",
+            "itemName": "Equipment Upgrade Stone",
+            "quantity": 5,
+            "dropRate": 75,
+            "rarity": "rare"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-007",
+    "slug": "celestial-sanctuary",
+    "name": "Celestial Sanctuary",
+    "description": "Holy sanctuary protected by divine guardians. Dark forces are weakened here.",
+    "image": "/images/dungeons/celestial-sanctuary.png",
+    "type": "story",
+    "difficulty": "expert",
+    "recommendedLevel": 45,
+    "recommendedHeroes": ["hero-006", "hero-013"],
+    "rewards": [
+      {
+        "itemId": "item-014",
+        "itemName": "Holy Relic",
+        "quantity": 15,
+        "dropRate": 100,
+        "rarity": "legendary"
+      },
+      {
+        "itemId": "item-015",
+        "itemName": "Legendary Equipment Box",
+        "quantity": 1,
+        "dropRate": 20,
+        "rarity": "legendary"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Sacred Steps",
+        "enemies": ["hero-006"],
+        "rewards": [
+          {
+            "itemId": "item-014",
+            "itemName": "Holy Relic",
+            "quantity": 5,
+            "dropRate": 100,
+            "rarity": "legendary"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Divine Hall",
+        "enemies": ["hero-006", "hero-013"],
+        "boss": "hero-006",
+        "rewards": [
+          {
+            "itemId": "item-015",
+            "itemName": "Legendary Equipment Box",
+            "quantity": 1,
+            "dropRate": 20,
+            "rarity": "legendary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-008",
+    "slug": "wind-peak",
+    "name": "Wind Peak",
+    "description": "Highest mountain buffeted by fierce winds. Slow but sturdy heroes work best.",
+    "image": "/images/dungeons/wind-peak.png",
+    "type": "challenge",
+    "difficulty": "hard",
+    "recommendedLevel": 35,
+    "recommendedHeroes": ["hero-008"],
+    "rewards": [
+      {
+        "itemId": "item-016",
+        "itemName": "Wind Crystal",
+        "quantity": 20,
+        "dropRate": 100,
+        "rarity": "epic"
+      },
+      {
+        "itemId": "item-002",
+        "itemName": "Gold",
+        "quantity": 10000,
+        "dropRate": 100
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Windy Slopes",
+        "enemies": ["hero-009"],
+        "rewards": [
+          {
+            "itemId": "item-016",
+            "itemName": "Wind Crystal",
+            "quantity": 10,
+            "dropRate": 100,
+            "rarity": "epic"
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Summit Shrine",
+        "enemies": ["hero-009", "hero-016"],
+        "boss": "hero-016",
+        "rewards": [
+          {
+            "itemId": "item-002",
+            "itemName": "Gold",
+            "quantity": 10000,
+            "dropRate": 100
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dungeon-009",
+    "slug": "trial-arena",
+    "name": "Trial Arena",
+    "description": "Gladiatorial arena testing combat prowess against waves of enemies.",
+    "image": "/images/dungeons/trial-arena.png",
+    "type": "event",
+    "difficulty": "easy",
+    "recommendedLevel": 10,
+    "rewards": [
+      {
+        "itemId": "item-002",
+        "itemName": "Gold",
+        "quantity": 2000,
+        "dropRate": 100
+      },
+      {
+        "itemId": "item-017",
+        "itemName": "Common Hero Chest",
+        "quantity": 1,
+        "dropRate": 100,
+        "rarity": "common"
+      }
+    ],
+    "stages": [
+      {
+        "stageNumber": 1,
+        "name": "Wave 1",
+        "enemies": ["hero-011", "hero-012"],
+        "rewards": [
+          {
+            "itemId": "item-002",
+            "itemName": "Gold",
+            "quantity": 2000,
+            "dropRate": 100
+          }
+        ]
+      },
+      {
+        "stageNumber": 2,
+        "name": "Wave 2",
+        "enemies": ["hero-011", "hero-012", "hero-009"],
+        "rewards": [
+          {
+            "itemId": "item-017",
+            "itemName": "Common Hero Chest",
+            "quantity": 1,
+            "dropRate": 100,
+            "rarity": "common"
+          }
+        ]
+      }
+    ]
+  }
+]

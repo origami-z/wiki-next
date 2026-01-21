@@ -1,0 +1,199 @@
+{
+  "id": "wittle-defender",
+  "slug": "wittle-defender",
+  "name": "Wittle Defender",
+  "description": "A roguelike hero defense game featuring 90+ heroes with unique abilities, elemental combat, and challenging dungeons.",
+  "categories": [
+    {
+      "id": "heroes",
+      "slug": "heroes",
+      "name": "Heroes",
+      "entityType": "heroes",
+      "icon": "⚔️",
+      "description": "Collect and upgrade heroes with unique abilities and elemental powers",
+      "displayFields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "string",
+          "required": true,
+          "sortable": true
+        },
+        {
+          "key": "rarity",
+          "label": "Rarity",
+          "type": "badge",
+          "required": true,
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "key": "element",
+          "label": "Element",
+          "type": "badge",
+          "required": true,
+          "filterable": true
+        },
+        {
+          "key": "role",
+          "label": "Role",
+          "type": "badge",
+          "required": true,
+          "filterable": true
+        },
+        {
+          "key": "tier",
+          "label": "Tier",
+          "type": "badge",
+          "required": true,
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "key": "image",
+          "label": "Image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "dungeons",
+      "slug": "dungeons",
+      "name": "Dungeons",
+      "entityType": "dungeons",
+      "icon": "🏰",
+      "description": "Explore challenging dungeons with unique mechanics and valuable rewards",
+      "displayFields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "string",
+          "required": true,
+          "sortable": true
+        },
+        {
+          "key": "type",
+          "label": "Type",
+          "type": "badge",
+          "required": true,
+          "filterable": true
+        },
+        {
+          "key": "difficulty",
+          "label": "Difficulty",
+          "type": "badge",
+          "required": true,
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "key": "recommendedLevel",
+          "label": "Level",
+          "type": "number",
+          "sortable": true
+        },
+        {
+          "key": "image",
+          "label": "Image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "slug": "skills",
+      "name": "Skills",
+      "entityType": "skills",
+      "icon": "✨",
+      "description": "Master powerful skills with elemental and support abilities",
+      "displayFields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "string",
+          "required": true,
+          "sortable": true
+        },
+        {
+          "key": "type",
+          "label": "Type",
+          "type": "badge",
+          "required": true,
+          "filterable": true
+        },
+        {
+          "key": "element",
+          "label": "Element",
+          "type": "badge",
+          "filterable": true
+        },
+        {
+          "key": "targetType",
+          "label": "Target",
+          "type": "badge",
+          "filterable": true
+        },
+        {
+          "key": "cooldown",
+          "label": "Cooldown",
+          "type": "number",
+          "sortable": true
+        },
+        {
+          "key": "image",
+          "label": "Image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "mechanics",
+      "slug": "mechanics",
+      "name": "Mechanics",
+      "entityType": "mechanics",
+      "icon": "⚙️",
+      "description": "Understand game mechanics and systems",
+      "displayFields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "string",
+          "required": true,
+          "sortable": true
+        },
+        {
+          "key": "category",
+          "label": "Category",
+          "type": "badge",
+          "required": true,
+          "filterable": true
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "heroes",
+      "to": "skills",
+      "type": "one-to-many",
+      "fieldName": "skills"
+    },
+    {
+      "from": "heroes",
+      "to": "heroes",
+      "type": "many-to-many",
+      "fieldName": "synergies"
+    },
+    {
+      "from": "dungeons",
+      "to": "heroes",
+      "type": "one-to-many",
+      "fieldName": "recommendedHeroes"
+    }
+  ]
+}

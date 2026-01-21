@@ -1,0 +1,726 @@
+[
+  {
+    "id": "skill-001",
+    "slug": "flame-slash",
+    "name": "Flame Slash",
+    "description": "Slashes enemy with a fiery blade, dealing fire damage and applying a burn effect.",
+    "image": "/images/skills/flame-slash.png",
+    "type": "active",
+    "element": "fire",
+    "cooldown": 3,
+    "manaCost": 40,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 250,
+        "description": "Deals 250% ATK as fire damage"
+      },
+      {
+        "type": "debuff",
+        "value": 50,
+        "duration": 2,
+        "description": "Burns target for 50% ATK per turn for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-002",
+    "slug": "blazing-shield",
+    "name": "Blazing Shield",
+    "description": "Creates a shield of flames that absorbs damage and burns attackers.",
+    "image": "/images/skills/blazing-shield.png",
+    "type": "active",
+    "element": "fire",
+    "cooldown": 5,
+    "manaCost": 60,
+    "targetType": "self",
+    "effects": [
+      {
+        "type": "shield",
+        "value": 300,
+        "duration": 2,
+        "description": "Shields self for 300% DEF for 2 turns"
+      },
+      {
+        "type": "debuff",
+        "value": 80,
+        "description": "Burns attackers for 80% ATK when shield is hit"
+      }
+    ]
+  },
+  {
+    "id": "skill-003",
+    "slug": "frost-nova",
+    "name": "Frost Nova",
+    "description": "Releases a burst of freezing energy that damages and slows all enemies.",
+    "image": "/images/skills/frost-nova.png",
+    "type": "active",
+    "element": "ice",
+    "cooldown": 4,
+    "manaCost": 70,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 180,
+        "description": "Deals 180% ATK as ice damage to all enemies"
+      },
+      {
+        "type": "debuff",
+        "value": 30,
+        "duration": 2,
+        "description": "Reduces enemy speed by 30% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-004",
+    "slug": "ice-prison",
+    "name": "Ice Prison",
+    "description": "Encases target in ice, stunning them and reducing their defense.",
+    "image": "/images/skills/ice-prison.png",
+    "type": "active",
+    "element": "ice",
+    "cooldown": 6,
+    "manaCost": 80,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "control",
+        "value": 100,
+        "duration": 1,
+        "description": "Stuns target for 1 turn"
+      },
+      {
+        "type": "debuff",
+        "value": 40,
+        "duration": 3,
+        "description": "Reduces target defense by 40% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-005",
+    "slug": "lightning-strike",
+    "name": "Lightning Strike",
+    "description": "Calls down a powerful lightning bolt on a single enemy.",
+    "image": "/images/skills/lightning-strike.png",
+    "type": "active",
+    "element": "lightning",
+    "cooldown": 3,
+    "manaCost": 50,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 350,
+        "description": "Deals 350% ATK as lightning damage"
+      },
+      {
+        "type": "debuff",
+        "value": 20,
+        "duration": 1,
+        "description": "20% chance to paralyze for 1 turn"
+      }
+    ]
+  },
+  {
+    "id": "skill-006",
+    "slug": "storm-rush",
+    "name": "Storm Rush",
+    "description": "Charges at enemy with lightning speed, dealing massive damage.",
+    "image": "/images/skills/storm-rush.png",
+    "type": "ultimate",
+    "element": "lightning",
+    "cooldown": 8,
+    "manaCost": 120,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 600,
+        "description": "Deals 600% ATK as lightning damage"
+      },
+      {
+        "type": "buff",
+        "value": 50,
+        "duration": 2,
+        "description": "Increases own speed by 50% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-007",
+    "slug": "toxic-cloud",
+    "name": "Toxic Cloud",
+    "description": "Spreads a poisonous cloud that damages all enemies over time.",
+    "image": "/images/skills/toxic-cloud.png",
+    "type": "active",
+    "element": "poison",
+    "cooldown": 4,
+    "manaCost": 60,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "debuff",
+        "value": 100,
+        "duration": 3,
+        "description": "Poisons all enemies for 100% ATK per turn for 3 turns"
+      },
+      {
+        "type": "debuff",
+        "value": 20,
+        "duration": 3,
+        "description": "Reduces healing received by 20% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-008",
+    "slug": "venom-fang",
+    "name": "Venom Fang",
+    "description": "Bites target with venomous fangs, applying stacking poison.",
+    "image": "/images/skills/venom-fang.png",
+    "type": "active",
+    "element": "poison",
+    "cooldown": 2,
+    "manaCost": 35,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 150,
+        "description": "Deals 150% ATK as poison damage"
+      },
+      {
+        "type": "debuff",
+        "value": 80,
+        "duration": 4,
+        "description": "Applies stacking poison (80% ATK per turn, stacks up to 3 times)"
+      }
+    ]
+  },
+  {
+    "id": "skill-009",
+    "slug": "healing-wave",
+    "name": "Healing Wave",
+    "description": "Sends out a wave of healing energy that restores HP to all allies.",
+    "image": "/images/skills/healing-wave.png",
+    "type": "active",
+    "element": "ice",
+    "cooldown": 4,
+    "manaCost": 70,
+    "targetType": "all",
+    "effects": [
+      {
+        "type": "heal",
+        "value": 200,
+        "description": "Heals all allies for 200% ATK"
+      }
+    ]
+  },
+  {
+    "id": "skill-010",
+    "slug": "water-shield",
+    "name": "Water Shield",
+    "description": "Surrounds an ally with a protective water barrier.",
+    "image": "/images/skills/water-shield.png",
+    "type": "active",
+    "cooldown": 5,
+    "manaCost": 55,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "shield",
+        "value": 250,
+        "duration": 3,
+        "description": "Shields target ally for 250% DEF for 3 turns"
+      },
+      {
+        "type": "buff",
+        "value": 15,
+        "duration": 3,
+        "description": "Increases target defense by 15% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-011",
+    "slug": "divine-blessing",
+    "name": "Divine Blessing",
+    "description": "Channels holy light to heal and buff all allies.",
+    "image": "/images/skills/divine-blessing.png",
+    "type": "active",
+    "element": "holy",
+    "cooldown": 5,
+    "manaCost": 80,
+    "targetType": "all",
+    "effects": [
+      {
+        "type": "heal",
+        "value": 150,
+        "description": "Heals all allies for 150% ATK"
+      },
+      {
+        "type": "buff",
+        "value": 25,
+        "duration": 3,
+        "description": "Increases all allies' attack by 25% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-012",
+    "slug": "radiant-smite",
+    "name": "Radiant Smite",
+    "description": "Strikes with holy power, dealing extra damage to dark enemies.",
+    "image": "/images/skills/radiant-smite.png",
+    "type": "active",
+    "element": "holy",
+    "cooldown": 3,
+    "manaCost": 50,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 280,
+        "description": "Deals 280% ATK as holy damage (double damage to dark element)"
+      },
+      {
+        "type": "debuff",
+        "value": 30,
+        "duration": 2,
+        "description": "Reduces target attack by 30% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-013",
+    "slug": "shadow-strike",
+    "name": "Shadow Strike",
+    "description": "Strikes from shadows with lethal precision, ignoring part of defense.",
+    "image": "/images/skills/shadow-strike.png",
+    "type": "active",
+    "element": "dark",
+    "cooldown": 3,
+    "manaCost": 45,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 320,
+        "description": "Deals 320% ATK as dark damage, ignoring 30% of target defense"
+      }
+    ]
+  },
+  {
+    "id": "skill-014",
+    "slug": "soul-reap",
+    "name": "Soul Reap",
+    "description": "Harvests enemy souls, dealing massive damage to low HP targets.",
+    "image": "/images/skills/soul-reap.png",
+    "type": "ultimate",
+    "element": "dark",
+    "cooldown": 7,
+    "manaCost": 100,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 500,
+        "description": "Deals 500% ATK as dark damage (double damage if target below 30% HP)"
+      },
+      {
+        "type": "heal",
+        "value": 50,
+        "description": "Heals self for 50% of damage dealt"
+      }
+    ]
+  },
+  {
+    "id": "skill-015",
+    "slug": "stone-skin",
+    "name": "Stone Skin",
+    "description": "Hardens skin to absorb massive amounts of damage.",
+    "image": "/images/skills/stone-skin.png",
+    "type": "passive",
+    "element": "nature",
+    "targetType": "self",
+    "effects": [
+      {
+        "type": "buff",
+        "value": 50,
+        "description": "Permanently increases defense by 50%"
+      },
+      {
+        "type": "buff",
+        "value": 20,
+        "description": "20% chance to ignore damage completely"
+      }
+    ]
+  },
+  {
+    "id": "skill-016",
+    "slug": "earthquake",
+    "name": "Earthquake",
+    "description": "Shakes the ground, damaging and stunning all enemies.",
+    "image": "/images/skills/earthquake.png",
+    "type": "ultimate",
+    "element": "nature",
+    "cooldown": 8,
+    "manaCost": 120,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 220,
+        "description": "Deals 220% ATK as physical damage to all enemies"
+      },
+      {
+        "type": "control",
+        "value": 60,
+        "duration": 1,
+        "description": "60% chance to stun all enemies for 1 turn"
+      }
+    ]
+  },
+  {
+    "id": "skill-017",
+    "slug": "wind-boost",
+    "name": "Wind Boost",
+    "description": "Channels wind to increase all allies' speed.",
+    "image": "/images/skills/wind-boost.png",
+    "type": "active",
+    "cooldown": 4,
+    "manaCost": 50,
+    "targetType": "all",
+    "effects": [
+      {
+        "type": "buff",
+        "value": 40,
+        "duration": 3,
+        "description": "Increases all allies' speed by 40% for 3 turns"
+      },
+      {
+        "type": "buff",
+        "value": 20,
+        "duration": 3,
+        "description": "Increases evasion by 20% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-018",
+    "slug": "aerial-grace",
+    "name": "Aerial Grace",
+    "description": "Passive agility that increases dodge chance.",
+    "image": "/images/skills/aerial-grace.png",
+    "type": "passive",
+    "targetType": "self",
+    "effects": [
+      {
+        "type": "buff",
+        "value": 25,
+        "description": "Permanently increases evasion by 25%"
+      },
+      {
+        "type": "buff",
+        "value": 15,
+        "description": "Increases speed by 15%"
+      }
+    ]
+  },
+  {
+    "id": "skill-019",
+    "slug": "dragon-breath",
+    "name": "Dragon Breath",
+    "description": "Breathes devastating flames that engulf all enemies.",
+    "image": "/images/skills/dragon-breath.png",
+    "type": "ultimate",
+    "element": "fire",
+    "cooldown": 7,
+    "manaCost": 150,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 380,
+        "description": "Deals 380% ATK as fire damage to all enemies"
+      },
+      {
+        "type": "debuff",
+        "value": 120,
+        "duration": 3,
+        "description": "Burns all enemies for 120% ATK per turn for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-020",
+    "slug": "dragon-scales",
+    "name": "Dragon Scales",
+    "description": "Passive armored scales that reduce incoming damage.",
+    "image": "/images/skills/dragon-scales.png",
+    "type": "passive",
+    "element": "fire",
+    "targetType": "self",
+    "effects": [
+      {
+        "type": "buff",
+        "value": 30,
+        "description": "Permanently reduces damage taken by 30%"
+      },
+      {
+        "type": "buff",
+        "value": 25,
+        "description": "25% chance to reflect 50% of damage back to attacker"
+      }
+    ]
+  },
+  {
+    "id": "skill-021",
+    "slug": "serpent-bite",
+    "name": "Serpent Bite",
+    "description": "Quick venomous bite that applies poison.",
+    "image": "/images/skills/serpent-bite.png",
+    "type": "active",
+    "element": "poison",
+    "cooldown": 2,
+    "manaCost": 30,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 120,
+        "description": "Deals 120% ATK as poison damage"
+      },
+      {
+        "type": "debuff",
+        "value": 60,
+        "duration": 3,
+        "description": "Poisons target for 60% ATK per turn for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-022",
+    "slug": "crystal-restore",
+    "name": "Crystal Restore",
+    "description": "Channels crystal energy to heal and cleanse an ally.",
+    "image": "/images/skills/crystal-restore.png",
+    "type": "active",
+    "cooldown": 3,
+    "manaCost": 45,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "heal",
+        "value": 220,
+        "description": "Heals target ally for 220% ATK"
+      },
+      {
+        "type": "buff",
+        "value": 100,
+        "description": "Removes all debuffs from target"
+      }
+    ]
+  },
+  {
+    "id": "skill-023",
+    "slug": "holy-arrow",
+    "name": "Holy Arrow",
+    "description": "Fires an arrow infused with divine light.",
+    "image": "/images/skills/holy-arrow.png",
+    "type": "active",
+    "element": "holy",
+    "cooldown": 2,
+    "manaCost": 40,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 280,
+        "description": "Deals 280% ATK as holy damage"
+      },
+      {
+        "type": "damage",
+        "value": 150,
+        "description": "Deals additional 150% true damage to dark enemies"
+      }
+    ]
+  },
+  {
+    "id": "skill-024",
+    "slug": "arrow-rain",
+    "name": "Arrow Rain",
+    "description": "Rains down holy arrows on all enemies.",
+    "image": "/images/skills/arrow-rain.png",
+    "type": "ultimate",
+    "element": "holy",
+    "cooldown": 6,
+    "manaCost": 90,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 240,
+        "description": "Deals 240% ATK as holy damage to all enemies"
+      },
+      {
+        "type": "debuff",
+        "value": 30,
+        "duration": 2,
+        "description": "Reduces all enemies' defense by 30% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-025",
+    "slug": "nightmare-blade",
+    "name": "Nightmare Blade",
+    "description": "Strikes with fear-inducing blade, reducing enemy accuracy.",
+    "image": "/images/skills/nightmare-blade.png",
+    "type": "active",
+    "element": "dark",
+    "cooldown": 3,
+    "manaCost": 45,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 300,
+        "description": "Deals 300% ATK as dark damage"
+      },
+      {
+        "type": "debuff",
+        "value": 40,
+        "duration": 2,
+        "description": "Reduces target accuracy by 40% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-026",
+    "slug": "root-bind",
+    "name": "Root Bind",
+    "description": "Summons roots to bind and damage enemies over time.",
+    "image": "/images/skills/root-bind.png",
+    "type": "active",
+    "element": "nature",
+    "cooldown": 4,
+    "manaCost": 55,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "control",
+        "value": 80,
+        "duration": 2,
+        "description": "80% chance to immobilize target for 2 turns"
+      },
+      {
+        "type": "damage",
+        "value": 90,
+        "duration": 3,
+        "description": "Deals 90% ATK damage per turn while bound"
+      }
+    ]
+  },
+  {
+    "id": "skill-027",
+    "slug": "thunder-storm",
+    "name": "Thunder Storm",
+    "description": "Summons a storm that strikes all enemies with lightning.",
+    "image": "/images/skills/thunder-storm.png",
+    "type": "ultimate",
+    "element": "lightning",
+    "cooldown": 7,
+    "manaCost": 110,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 280,
+        "description": "Deals 280% ATK as lightning damage to all enemies"
+      },
+      {
+        "type": "debuff",
+        "value": 35,
+        "duration": 2,
+        "description": "Reduces all enemies' accuracy by 35% for 2 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-028",
+    "slug": "static-field",
+    "name": "Static Field",
+    "description": "Creates an electric field that slows and damages enemies.",
+    "image": "/images/skills/static-field.png",
+    "type": "active",
+    "element": "lightning",
+    "cooldown": 4,
+    "manaCost": 60,
+    "targetType": "aoe",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 150,
+        "description": "Deals 150% ATK as lightning damage to all enemies"
+      },
+      {
+        "type": "debuff",
+        "value": 25,
+        "duration": 3,
+        "description": "Reduces all enemies' speed by 25% for 3 turns"
+      }
+    ]
+  },
+  {
+    "id": "skill-029",
+    "slug": "berserker-rage",
+    "name": "Berserker Rage",
+    "description": "Enters berserk state, gaining power as HP decreases.",
+    "image": "/images/skills/berserker-rage.png",
+    "type": "passive",
+    "element": "fire",
+    "targetType": "self",
+    "effects": [
+      {
+        "type": "buff",
+        "value": 100,
+        "description": "Increases attack by up to 100% based on missing HP"
+      },
+      {
+        "type": "buff",
+        "value": 30,
+        "description": "Increases crit rate by 30%"
+      }
+    ]
+  },
+  {
+    "id": "skill-030",
+    "slug": "infernal-strike",
+    "name": "Infernal Strike",
+    "description": "Unleashes all accumulated rage in one devastating strike.",
+    "image": "/images/skills/infernal-strike.png",
+    "type": "ultimate",
+    "element": "fire",
+    "cooldown": 6,
+    "manaCost": 100,
+    "targetType": "single",
+    "effects": [
+      {
+        "type": "damage",
+        "value": 450,
+        "description": "Deals 450% ATK as fire damage (increased by Berserker Rage bonus)"
+      },
+      {
+        "type": "debuff",
+        "value": 150,
+        "duration": 2,
+        "description": "Burns target for 150% ATK per turn for 2 turns"
+      }
+    ]
+  }
+]
