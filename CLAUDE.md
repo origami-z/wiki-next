@@ -42,6 +42,9 @@ npm run test:all         # Run all tests (unit + E2E)
 
 ## Development Practices
 
+### Git Commits
+When creating commits, always include changes from the `./claude-logs` folder along with your code changes. These logs provide valuable context about the development process.
+
 ### Bug Fixes and Testing
 When fixing a bug or resolving a problem, always add corresponding tests to prevent regression:
 
