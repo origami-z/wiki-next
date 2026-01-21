@@ -1,0 +1,22 @@
+{
+  "header": {
+    "title": "游戏维基",
+    "games": "游戏",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
+  },
+  "footer": {
+    "copyright": "© {year} 游戏维基。保留所有权利。"
+  },
+  "theme": {
+    "toggleTheme": "切换主题",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  },
+  "locale": {
+    "switchLocale": "切换语言",
+    "english": "English",
+    "chinese": "简体中文"
+  }
+}

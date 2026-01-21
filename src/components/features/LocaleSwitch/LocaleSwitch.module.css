@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--spacing-sm);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-bg-sunken);
+}
+
+.button:active {
+  background-color: var(--color-border);
+}
+
+.text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  user-select: none;
+}

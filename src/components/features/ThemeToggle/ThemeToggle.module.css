@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-bg-sunken);
+}
+
+.button:active {
+  background-color: var(--color-border);
+}
+
+.icon {
+  font-size: var(--text-xl);
+  line-height: 1;
+  user-select: none;
+}

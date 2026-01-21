@@ -1,0 +1,22 @@
+{
+  "header": {
+    "title": "Game Wiki",
+    "games": "Games",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "copyright": "© {year} Game Wiki. All rights reserved."
+  },
+  "theme": {
+    "toggleTheme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "locale": {
+    "switchLocale": "Switch language",
+    "english": "English",
+    "chinese": "简体中文"
+  }
+}

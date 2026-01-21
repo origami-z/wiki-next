@@ -9,7 +9,8 @@ export const routing = defineRouting({
   defaultLocale: 'en',
 
   // The `localePrefix` setting controls whether a locale prefix is shown in the URL.
-  // - 'as-needed': English (default locale) will not have a prefix, but Chinese will (e.g., /zh/games)
+  // - 'always': All locales will have a prefix (e.g., /en/games, /zh/games)
+  // - 'as-needed': English (default locale) will not have a prefix, but Chinese will (e.g., /games, /zh/games)
   localePrefix: 'as-needed',
 });
 
