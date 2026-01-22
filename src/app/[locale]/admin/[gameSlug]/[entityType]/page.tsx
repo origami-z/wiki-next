@@ -6,6 +6,7 @@
 import { getEntitySchema } from '@/lib/admin/schemas/wittle-defender';
 import { EntityList } from '@/components/admin/EntityList';
 import { notFound } from 'next/navigation';
+import { readEntityData, sortEntities } from '@/lib/admin/file-operations';
 
 interface PageProps {
   params: Promise<{
@@ -25,5 +26,20 @@ export default async function EntityListPage({ params }: PageProps) {
     notFound();
   }
 
-  return <EntityList gameSlug={gameSlug} entityType={entityType} schema={schema} />;
+  // Fetch initial data on server
+  let entities = await readEntityData(gameSlug, entityType);
+
+  // Apply default sort
+  if (schema.sortField) {
+    entities = sortEntities(entities, schema.sortField, schema.sortOrder || "asc");
+  }
+
+  return (
+    <EntityList
+      gameSlug={gameSlug}
+      entityType={entityType}
+      schema={schema}
+      initialEntities={entities}
+    />
+  );
 }

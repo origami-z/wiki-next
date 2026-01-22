@@ -3,29 +3,45 @@
  * Displays a searchable, sortable list of entities
  */
 
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import type { EntitySchema } from '@/types/admin';
-import styles from './EntityList.module.css';
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import type { EntitySchema } from "@/types/admin";
+import styles from "./EntityList.module.css";
 
+// ... props interface
 interface EntityListProps {
   gameSlug: string;
   entityType: string;
   schema: EntitySchema;
+  initialEntities?: any[];
 }
 
-export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
-  const [entities, setEntities] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+export function EntityList({
+  gameSlug,
+  entityType,
+  schema,
+  initialEntities = [],
+}: EntityListProps) {
+  const [entities, setEntities] = useState<any[]>(initialEntities);
+  const [loading, setLoading] = useState(initialEntities.length === 0);
   const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState(schema.sortField || schema.displayField);
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>(schema.sortOrder || 'asc');
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">(
+    schema.sortOrder || "asc",
+  );
 
+  const isFirstRun = useRef(true);
+  
   useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      if (initialEntities.length > 0) return;
+    }
     loadEntities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameSlug, entityType, searchQuery, sortBy, sortOrder]);
 
   async function loadEntities() {
@@ -34,55 +50,56 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
 
     try {
       const params = new URLSearchParams();
-      if (searchQuery) params.append('search', searchQuery);
-      if (sortBy) params.append('sortBy', sortBy);
-      if (sortOrder) params.append('sortOrder', sortOrder);
+      if (searchQuery) params.append("search", searchQuery);
+      if (sortBy) params.append("sortBy", sortBy);
+      if (sortOrder) params.append("sortOrder", sortOrder);
 
+      console.log("EntityList fetching with params:", params.toString());
       const response = await fetch(
-        `/api/admin/${gameSlug}/${entityType}?${params.toString()}`
+        `/api/admin/${gameSlug}/${entityType}?${params.toString()}`,
       );
 
       if (!response.ok) {
-        throw new Error('Failed to load entities');
+        throw new Error("Failed to load entities");
       }
 
       const data = await response.json();
       setEntities(data.data || []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
   }
 
   async function handleDelete(entityId: string) {
-    if (!confirm('Are you sure you want to delete this entity?')) {
+    if (!confirm("Are you sure you want to delete this entity?")) {
       return;
     }
 
     try {
       const response = await fetch(
         `/api/admin/${gameSlug}/${entityType}?id=${entityId}`,
-        { method: 'DELETE' }
+        { method: "DELETE" },
       );
 
       if (!response.ok) {
-        throw new Error('Failed to delete entity');
+        throw new Error("Failed to delete entity");
       }
 
       // Reload entities
       await loadEntities();
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to delete entity');
+      alert(err instanceof Error ? err.message : "Failed to delete entity");
     }
   }
 
   function handleSort(field: string) {
     if (sortBy === field) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
       setSortBy(field);
-      setSortOrder('asc');
+      setSortOrder("asc");
     }
   }
 
@@ -125,7 +142,7 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
           />
 
           <div className={styles.stats}>
-            {entities.length} {entities.length === 1 ? 'item' : 'items'}
+            {entities.length} {entities.length === 1 ? "item" : "items"}
           </div>
         </div>
       </div>
@@ -150,17 +167,17 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
                     {schema.label}
                     {sortBy === schema.displayField && (
                       <span className={styles.sortIcon}>
-                        {sortOrder === 'asc' ? '↑' : '↓'}
+                        {sortOrder === "asc" ? "↑" : "↓"}
                       </span>
                     )}
                   </div>
                 </th>
-                <th onClick={() => handleSort('id')}>
+                <th onClick={() => handleSort("id")}>
                   <div className={styles.headerCell}>
                     ID
-                    {sortBy === 'id' && (
+                    {sortBy === "id" && (
                       <span className={styles.sortIcon}>
-                        {sortOrder === 'asc' ? '↑' : '↓'}
+                        {sortOrder === "asc" ? "↑" : "↓"}
                       </span>
                     )}
                   </div>
@@ -169,10 +186,10 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
                   .filter(
                     (f) =>
                       f.name !== schema.displayField &&
-                      f.name !== 'id' &&
-                      f.name !== 'slug' &&
-                      f.name !== 'description' &&
-                      (f.type === 'string' || f.type === 'select')
+                      f.name !== "id" &&
+                      f.name !== "slug" &&
+                      f.name !== "description" &&
+                      (f.type === "string" || f.type === "select"),
                   )
                   .slice(0, 3)
                   .map((field) => (
@@ -181,7 +198,7 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
                         {field.label}
                         {sortBy === field.name && (
                           <span className={styles.sortIcon}>
-                            {sortOrder === 'asc' ? '↑' : '↓'}
+                            {sortOrder === "asc" ? "↑" : "↓"}
                           </span>
                         )}
                       </div>
@@ -201,16 +218,14 @@ export function EntityList({ gameSlug, entityType, schema }: EntityListProps) {
                     .filter(
                       (f) =>
                         f.name !== schema.displayField &&
-                        f.name !== 'id' &&
-                        f.name !== 'slug' &&
-                        f.name !== 'description' &&
-                        (f.type === 'string' || f.type === 'select')
+                        f.name !== "id" &&
+                        f.name !== "slug" &&
+                        f.name !== "description" &&
+                        (f.type === "string" || f.type === "select"),
                     )
                     .slice(0, 3)
                     .map((field) => (
-                      <td key={field.name}>
-                        {entity[field.name] || '-'}
-                      </td>
+                      <td key={field.name}>{entity[field.name] || "-"}</td>
                     ))}
                   <td className={styles.actionsCell}>
                     <Link
