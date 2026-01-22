@@ -1,0 +1,49 @@
+[
+  {
+    "id": "wittle-defender-challenge",
+    "slug": "wittle-defender-challenge",
+    "name": "Wittle Defender Challenge",
+    "description": "A recurring challenge that rotates every 3 weeks! Complete stages to earn exclusive items.",
+    "type": "recurring",
+    "startDate": "2024-01-01T00:00:00Z",
+    "recurrence": {
+      "type": "custom",
+      "intervalDays": 21,
+      "durationDays": 7
+    },
+    "stages": [
+      {
+        "id": "stage-1",
+        "name": "Stage 1 - Gathering",
+        "order": 1,
+        "requirements": [{ "itemName": "Crystal Shard", "quantity": 50 }],
+        "rewards": [{ "itemName": "Gold", "quantity": 5000 }]
+      },
+      {
+        "id": "stage-2",
+        "name": "Stage 2 - Battle",
+        "order": 2,
+        "requirements": [{ "itemName": "Battle Token", "quantity": 25 }],
+        "rewards": [{ "itemName": "Epic Hero Chest", "quantity": 1, "rarity": "epic" }]
+      }
+    ]
+  },
+  {
+    "id": "lunar-new-year",
+    "slug": "lunar-new-year",
+    "name": "Lunar New Year Celebration",
+    "description": "Celebrate the year of the snake with special limited-time rewards!",
+    "type": "one_time",
+    "startDate": "2026-02-10T00:00:00Z",
+    "endDate": "2026-02-24T00:00:00Z",
+    "stages": [
+      {
+        "id": "lny-1",
+        "name": "Red Envelope Hunt",
+        "order": 1,
+        "requirements": [{ "itemName": "Red Envelope", "quantity": 10 }],
+        "rewards": [{ "itemName": "Year of the Snake Avatar", "quantity": 1 }]
+      }
+    ]
+  }
+]
