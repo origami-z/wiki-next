@@ -58,12 +58,12 @@ function getEntityType(categorySlug: string): 'hero' | 'dungeon' | 'skill' | 'ge
 }
 
 export default async function ItemPage({ params }: ItemPageProps) {
-  const { gameSlug, categorySlug, itemSlug } = await params;
+  const { locale, gameSlug, categorySlug, itemSlug } = await params;
   const t = await getTranslations('item');
 
   let gameMeta;
   try {
-    gameMeta = await loadGameMeta(gameSlug);
+    gameMeta = await loadGameMeta(gameSlug, locale);
   } catch {
     notFound();
   }
@@ -73,7 +73,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
     notFound();
   }
 
-  const entity = await loadEntityBySlug(gameSlug, category.entityType, itemSlug);
+  const entity = await loadEntityBySlug(gameSlug, category.entityType, itemSlug, locale);
   if (!entity) {
     notFound();
   }

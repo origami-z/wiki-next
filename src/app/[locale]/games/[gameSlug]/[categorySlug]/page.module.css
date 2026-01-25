@@ -77,13 +77,13 @@
 /* Entity Grid */
 .entityGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
 }
 
 @media (min-width: 640px) {
   .entityGrid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 }
 
@@ -141,15 +141,28 @@
 }
 
 .entityContent {
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 2px;
+}
+
+@media (min-width: 640px) {
+  .entityContent {
+    padding: var(--spacing-md);
+    gap: var(--spacing-xs);
+  }
 }
 
 .entityName {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .entityName {
+    font-size: var(--text-base);
+  }
 }
 
 .entityDescription {

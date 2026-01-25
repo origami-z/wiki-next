@@ -20,12 +20,12 @@ export async function generateStaticParams() {
 }
 
 export default async function GamePage({ params }: GamePageProps) {
-  const { gameSlug } = await params;
+  const { locale, gameSlug } = await params;
   const t = await getTranslations('game');
 
   let gameMeta;
   try {
-    gameMeta = await loadGameMeta(gameSlug);
+    gameMeta = await loadGameMeta(gameSlug, locale);
   } catch {
     notFound();
   }
@@ -34,7 +34,7 @@ export default async function GamePage({ params }: GamePageProps) {
   const categoryCounts = await Promise.all(
     gameMeta.categories.map(async (category) => {
       try {
-        const entities = await loadEntities(gameSlug, category.entityType);
+        const entities = await loadEntities(gameSlug, category.entityType, locale);
         return { categoryId: category.id, count: entities.length };
       } catch {
         return { categoryId: category.id, count: 0 };

@@ -4,9 +4,14 @@ import { loadAvailableGames } from '@/lib/data/loader';
 import { PlaceholderImage } from '@/components/shared/PlaceholderImage';
 import styles from './page.module.css';
 
-export default async function GamesPage() {
+interface GamesPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function GamesPage({ params }: GamesPageProps) {
+  const { locale } = await params;
   const t = await getTranslations('games');
-  const games = await loadAvailableGames();
+  const games = await loadAvailableGames(locale);
 
   return (
     <div className={styles.container}>

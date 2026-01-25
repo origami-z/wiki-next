@@ -57,12 +57,12 @@ function getBadgeClass(value: string, type: string): string {
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { gameSlug, categorySlug } = await params;
+  const { locale, gameSlug, categorySlug } = await params;
   const t = await getTranslations('category');
 
   let gameMeta;
   try {
-    gameMeta = await loadGameMeta(gameSlug);
+    gameMeta = await loadGameMeta(gameSlug, locale);
   } catch {
     notFound();
   }
@@ -74,7 +74,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   let entities: GameEntity[] = [];
   try {
-    entities = await loadEntities(gameSlug, category.entityType);
+    entities = await loadEntities(gameSlug, category.entityType, locale);
   } catch {
     // Empty array if no entities
   }
