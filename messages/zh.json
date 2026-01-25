@@ -18,5 +18,67 @@
     "switchLocale": "切换语言",
     "english": "English",
     "chinese": "简体中文"
+  },
+  "home": {
+    "title": "游戏维基",
+    "subtitle": "您的游戏机制、角色和策略综合指南",
+    "browseGames": "浏览游戏",
+    "featuredGames": "精选游戏",
+    "viewAll": "查看全部",
+    "categories": "个分类",
+    "noGames": "暂无可用游戏。",
+    "features": "特色功能",
+    "featureGuides": "详尽攻略",
+    "featureGuidesDesc": "涵盖游戏机制、策略和技巧的详细攻略，助您进步。",
+    "featureHeroes": "英雄数据库",
+    "featureHeroesDesc": "所有英雄的完整信息，包括技能、属性和羁绊。",
+    "featureEvents": "活动追踪",
+    "featureEventsDesc": "了解当前和即将到来的活动，包括奖励和时间表。"
+  },
+  "games": {
+    "title": "所有游戏",
+    "subtitle": "探索我们的综合游戏维基",
+    "noGames": "暂无可用游戏。"
+  },
+  "game": {
+    "categories": "分类",
+    "items": "项",
+    "viewEvents": "查看活动",
+    "statistics": "统计数据",
+    "totalCategories": "分类数",
+    "totalItems": "总项目数"
+  },
+  "category": {
+    "items": "项",
+    "noItems": "此分类暂无项目。"
+  },
+  "item": {
+    "rarity": "稀有度",
+    "tier": "评级",
+    "element": "属性",
+    "role": "定位",
+    "stats": "属性",
+    "hp": "生命值",
+    "attack": "攻击力",
+    "defense": "防御力",
+    "speed": "速度",
+    "critRate": "暴击率",
+    "critDamage": "暴击伤害",
+    "skillInfo": "技能信息",
+    "skillType": "类型",
+    "target": "目标",
+    "cooldown": "冷却时间",
+    "manaCost": "法力消耗",
+    "turns": "回合",
+    "effects": "效果",
+    "dungeonInfo": "副本信息",
+    "dungeonType": "类型",
+    "difficulty": "难度",
+    "recommendedLevel": "推荐等级",
+    "level": "等级",
+    "rewards": "奖励",
+    "mechanicInfo": "机制详情",
+    "mechanicCategory": "分类",
+    "backToList": "返回{category}"
   }
 }

@@ -18,5 +18,67 @@
     "switchLocale": "Switch language",
     "english": "English",
     "chinese": "简体中文"
+  },
+  "home": {
+    "title": "Game Wiki",
+    "subtitle": "Your comprehensive guide to game mechanics, characters, and strategies",
+    "browseGames": "Browse Games",
+    "featuredGames": "Featured Games",
+    "viewAll": "View All",
+    "categories": "categories",
+    "noGames": "No games available yet.",
+    "features": "Features",
+    "featureGuides": "Comprehensive Guides",
+    "featureGuidesDesc": "Detailed guides covering game mechanics, strategies, and tips to help you progress.",
+    "featureHeroes": "Hero Database",
+    "featureHeroesDesc": "Complete information on all heroes, their abilities, stats, and synergies.",
+    "featureEvents": "Event Tracker",
+    "featureEventsDesc": "Stay updated with current and upcoming events, including rewards and schedules."
+  },
+  "games": {
+    "title": "All Games",
+    "subtitle": "Explore our comprehensive game wikis",
+    "noGames": "No games available yet."
+  },
+  "game": {
+    "categories": "Categories",
+    "items": "items",
+    "viewEvents": "View Events",
+    "statistics": "Statistics",
+    "totalCategories": "Categories",
+    "totalItems": "Total Items"
+  },
+  "category": {
+    "items": "items",
+    "noItems": "No items in this category yet."
+  },
+  "item": {
+    "rarity": "Rarity",
+    "tier": "Tier",
+    "element": "Element",
+    "role": "Role",
+    "stats": "Stats",
+    "hp": "HP",
+    "attack": "Attack",
+    "defense": "Defense",
+    "speed": "Speed",
+    "critRate": "Crit Rate",
+    "critDamage": "Crit Damage",
+    "skillInfo": "Skill Information",
+    "skillType": "Type",
+    "target": "Target",
+    "cooldown": "Cooldown",
+    "manaCost": "Mana Cost",
+    "turns": "turns",
+    "effects": "Effects",
+    "dungeonInfo": "Dungeon Information",
+    "dungeonType": "Type",
+    "difficulty": "Difficulty",
+    "recommendedLevel": "Recommended Level",
+    "level": "Lv.",
+    "rewards": "Rewards",
+    "mechanicInfo": "Mechanic Details",
+    "mechanicCategory": "Category",
+    "backToList": "Back to {category}"
   }
 }
