@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { EventStage } from "@/types/events";
 
 interface EventStagesProps {
@@ -5,20 +6,22 @@ interface EventStagesProps {
 }
 
 export function EventStages({ stages }: EventStagesProps) {
+  const t = useTranslations('events');
+
   if (!stages || stages.length === 0) return null;
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-bold border-b pb-2 dark:border-gray-800">Event Stages</h3>
+      <h3 className="text-lg font-bold border-b pb-2 dark:border-gray-800">{t('eventStages')}</h3>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {stages.sort((a,b) => a.order - b.order).map((stage) => (
           <div key={stage.id} className="rounded-lg border bg-card p-4 shadow-sm dark:bg-gray-900 dark:border-gray-800">
             <div className="float-right text-sm text-gray-500 font-mono">#{stage.order}</div>
             <h4 className="font-semibold mb-3">{stage.name}</h4>
-            
+
             {stage.requirements.length > 0 && (
               <div className="mb-3">
-                <p className="text-xs font-medium text-gray-500 uppercase mb-1">Requirements</p>
+                <p className="text-xs font-medium text-gray-500 uppercase mb-1">{t('requirements')}</p>
                 <ul className="text-sm space-y-1">
                   {stage.requirements.map((req, idx) => (
                     <li key={idx} className="flex justify-between">
@@ -32,7 +35,7 @@ export function EventStages({ stages }: EventStagesProps) {
 
             {stage.rewards.length > 0 && (
               <div>
-                <p className="text-xs font-medium text-gray-500 uppercase mb-1">Rewards</p>
+                <p className="text-xs font-medium text-gray-500 uppercase mb-1">{t('rewards')}</p>
                 <ul className="text-sm space-y-1">
                   {stage.rewards.map((reward, idx) => (
                     <li key={idx} className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 p-1.5 rounded">

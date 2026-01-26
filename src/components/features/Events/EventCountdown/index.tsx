@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface EventCountdownProps {
   targetDate: string; // ISO string
@@ -8,6 +9,7 @@ interface EventCountdownProps {
 }
 
 export function EventCountdown({ targetDate, onZero }: EventCountdownProps) {
+  const t = useTranslations('countdown');
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -18,7 +20,7 @@ export function EventCountdown({ targetDate, onZero }: EventCountdownProps) {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const difference = +new Date(targetDate) - +new Date();
-      
+
       if (difference > 0) {
         return {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -47,19 +49,19 @@ export function EventCountdown({ targetDate, onZero }: EventCountdownProps) {
     <div className="flex gap-4 text-center font-mono">
       <div className="flex flex-col">
         <span className="text-2xl font-bold">{timeLeft.days}</span>
-        <span className="text-xs text-gray-500 uppercase">Days</span>
+        <span className="text-xs text-gray-500 uppercase">{t('days')}</span>
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold">{timeLeft.hours.toString().padStart(2, '0')}</span>
-        <span className="text-xs text-gray-500 uppercase">Hrs</span>
+        <span className="text-xs text-gray-500 uppercase">{t('hours')}</span>
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-        <span className="text-xs text-gray-500 uppercase">Mins</span>
+        <span className="text-xs text-gray-500 uppercase">{t('minutes')}</span>
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-        <span className="text-xs text-gray-500 uppercase">Secs</span>
+        <span className="text-xs text-gray-500 uppercase">{t('seconds')}</span>
       </div>
     </div>
   );

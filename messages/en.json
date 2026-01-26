@@ -109,6 +109,42 @@
     "items": "items",
     "noItems": "No items in this category yet."
   },
+  "events": {
+    "title": "Game Events",
+    "activeEvents": "Active Events",
+    "upcomingEvents": "Upcoming Events",
+    "pastEvents": "Past Events",
+    "noActiveEvents": "No active events currently.",
+    "noUpcomingEvents": "No upcoming events scheduled.",
+    "upcomingTimeline": "Upcoming Timeline",
+    "recurring": "Recurring",
+    "endsIn": "Ends in:",
+    "startsIn": "Starts in:",
+    "endedOn": "Ended on {date}",
+    "activeNow": "Active Now",
+    "startsInDays": "Starts in {days} days",
+    "recurringEvent": "Recurring Event",
+    "limitedEvent": "Limited Event",
+    "eventStages": "Event Stages",
+    "requirements": "Requirements",
+    "rewards": "Rewards",
+    "backToEvents": "Back to Events",
+    "starts": "Starts",
+    "ends": "Ends",
+    "repeatsEvery": "Repeats every {days} days",
+    "futureDates": "Future Dates",
+    "status": {
+      "active": "Active",
+      "upcoming": "Upcoming",
+      "ended": "Ended"
+    }
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hrs",
+    "minutes": "Mins",
+    "seconds": "Secs"
+  },
   "item": {
     "rarity": "Rarity",
     "tier": "Tier",

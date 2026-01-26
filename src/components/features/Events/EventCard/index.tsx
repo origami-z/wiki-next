@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { GameEvent, EventStatus } from "@/types/events";
 import { EventCountdown } from "../EventCountdown";
 import { getCurrentOccurrence } from "@/lib/events/event-calculator";
@@ -9,6 +10,7 @@ interface EventCardProps {
 }
 
 export function EventCard({ gameSlug, event }: EventCardProps) {
+  const t = useTranslations('events');
   const occurrence = getCurrentOccurrence(event);
   const { status, startDate, endDate } = occurrence;
 
@@ -19,27 +21,27 @@ export function EventCard({ gameSlug, event }: EventCardProps) {
   };
 
   return (
-    <Link 
+    <Link
       href={`/games/${gameSlug}/events/${event.slug}`}
       className="block group relative overflow-hidden rounded-xl border border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
     >
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusColors[status]}`}>
-            {status.charAt(0).toUpperCase() + status.slice(1)}
+            {t(`status.${status}`)}
           </span>
           {event.type === 'recurring' && (
             <span className="text-xs text-gray-500 flex items-center gap-1">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-              Recurring
+              {t('recurring')}
             </span>
           )}
         </div>
-        
+
         <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {event.name}
         </h3>
-        
+
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
           {event.description}
         </p>
@@ -47,17 +49,17 @@ export function EventCard({ gameSlug, event }: EventCardProps) {
         <div className="mt-auto">
           {status === 'active' ? (
             <div className="text-sm">
-              <p className="text-gray-500 mb-1">Ends in:</p>
+              <p className="text-gray-500 mb-1">{t('endsIn')}</p>
               <EventCountdown targetDate={endDate} />
             </div>
           ) : status === 'upcoming' ? (
              <div className="text-sm">
-              <p className="text-gray-500 mb-1">Starts in:</p>
+              <p className="text-gray-500 mb-1">{t('startsIn')}</p>
               <EventCountdown targetDate={startDate} />
             </div>
           ) : (
             <div className="text-sm text-gray-500">
-              Ended on {new Date(endDate).toLocaleDateString()}
+              {t('endedOn', { date: new Date(endDate).toLocaleDateString() })}
             </div>
           )}
         </div>
