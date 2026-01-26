@@ -5,6 +5,63 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
+  "enums": {
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary",
+      "mythic": "Mythic"
+    },
+    "element": {
+      "fire": "Fire",
+      "ice": "Ice",
+      "lightning": "Lightning",
+      "poison": "Poison",
+      "holy": "Holy",
+      "dark": "Dark",
+      "nature": "Nature",
+      "neutral": "Neutral"
+    },
+    "role": {
+      "tank": "Tank",
+      "control": "Control",
+      "assassin": "Assassin",
+      "dps": "DPS",
+      "healer": "Healer",
+      "support": "Support"
+    },
+    "tier": {
+      "S": "S",
+      "A": "A",
+      "B": "B",
+      "C": "C"
+    },
+    "skillType": {
+      "active": "Active",
+      "passive": "Passive",
+      "ultimate": "Ultimate"
+    },
+    "targetType": {
+      "single": "Single",
+      "self": "Self",
+      "aoe": "AoE",
+      "all": "All"
+    },
+    "dungeonType": {
+      "story": "Story",
+      "challenge": "Challenge",
+      "event": "Event",
+      "raid": "Raid"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "normal": "Normal",
+      "hard": "Hard",
+      "expert": "Expert",
+      "nightmare": "Nightmare"
+    }
+  },
   "footer": {
     "copyright": "© {year} Game Wiki. All rights reserved."
   },

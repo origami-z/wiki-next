@@ -5,6 +5,63 @@
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单"
   },
+  "enums": {
+    "rarity": {
+      "common": "普通",
+      "rare": "稀有",
+      "epic": "史诗",
+      "legendary": "传说",
+      "mythic": "神话"
+    },
+    "element": {
+      "fire": "火",
+      "ice": "冰",
+      "lightning": "雷",
+      "poison": "毒",
+      "holy": "圣",
+      "dark": "暗",
+      "nature": "自然",
+      "neutral": "中立"
+    },
+    "role": {
+      "tank": "坦克",
+      "control": "控制",
+      "assassin": "刺客",
+      "dps": "输出",
+      "healer": "治疗",
+      "support": "辅助"
+    },
+    "tier": {
+      "S": "S",
+      "A": "A",
+      "B": "B",
+      "C": "C"
+    },
+    "skillType": {
+      "active": "主动",
+      "passive": "被动",
+      "ultimate": "终极"
+    },
+    "targetType": {
+      "single": "单体",
+      "self": "自身",
+      "aoe": "范围",
+      "all": "全体"
+    },
+    "dungeonType": {
+      "story": "剧情",
+      "challenge": "挑战",
+      "event": "活动",
+      "raid": "副本"
+    },
+    "difficulty": {
+      "easy": "简单",
+      "normal": "普通",
+      "hard": "困难",
+      "expert": "专家",
+      "nightmare": "噩梦"
+    }
+  },
   "footer": {
     "copyright": "© {year} 游戏维基。保留所有权利。"
   },

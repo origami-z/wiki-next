@@ -60,6 +60,7 @@ function getEntityType(categorySlug: string): 'hero' | 'dungeon' | 'skill' | 'ge
 export default async function ItemPage({ params }: ItemPageProps) {
   const { locale, gameSlug, categorySlug, itemSlug } = await params;
   const t = await getTranslations('item');
+  const tEnums = await getTranslations('enums');
 
   let gameMeta;
   try {
@@ -128,24 +129,24 @@ export default async function ItemPage({ params }: ItemPageProps) {
               <div className={styles.quickStatItem}>
                 <span className={styles.quickStatLabel}>{t('rarity')}</span>
                 <span className={`${styles.quickStatValue} ${styles[`rarity${hero.rarity.charAt(0).toUpperCase() + hero.rarity.slice(1)}`]}`}>
-                  {hero.rarity}
+                  {tEnums(`rarity.${hero.rarity}`)}
                 </span>
               </div>
               <div className={styles.quickStatItem}>
                 <span className={styles.quickStatLabel}>{t('tier')}</span>
                 <span className={`${styles.quickStatValue} ${styles[`tier${hero.tier}`]}`}>
-                  {hero.tier}
+                  {tEnums(`tier.${hero.tier}`)}
                 </span>
               </div>
               <div className={styles.quickStatItem}>
                 <span className={styles.quickStatLabel}>{t('element')}</span>
                 <span className={`${styles.quickStatValue} ${styles[`element${hero.element.charAt(0).toUpperCase() + hero.element.slice(1)}`]}`}>
-                  {hero.element}
+                  {tEnums(`element.${hero.element}`)}
                 </span>
               </div>
               <div className={styles.quickStatItem}>
                 <span className={styles.quickStatLabel}>{t('role')}</span>
-                <span className={styles.quickStatValue}>{hero.role}</span>
+                <span className={styles.quickStatValue}>{tEnums(`role.${hero.role}`)}</span>
               </div>
             </div>
           )}
@@ -187,20 +188,20 @@ export default async function ItemPage({ params }: ItemPageProps) {
                 <div className={styles.skillMetaItem}>
                   <span className={styles.skillMetaLabel}>{t('skillType')}</span>
                   <span className={`${styles.skillMetaValue} ${styles.skillTypeBadge}`}>
-                    {skill.type}
+                    {tEnums(`skillType.${skill.type}`)}
                   </span>
                 </div>
                 {skill.element && (
                   <div className={styles.skillMetaItem}>
                     <span className={styles.skillMetaLabel}>{t('element')}</span>
                     <span className={`${styles.skillMetaValue} ${styles[`element${skill.element.charAt(0).toUpperCase() + skill.element.slice(1)}`]}`}>
-                      {skill.element}
+                      {tEnums(`element.${skill.element}`)}
                     </span>
                   </div>
                 )}
                 <div className={styles.skillMetaItem}>
                   <span className={styles.skillMetaLabel}>{t('target')}</span>
-                  <span className={styles.skillMetaValue}>{skill.targetType}</span>
+                  <span className={styles.skillMetaValue}>{tEnums(`targetType.${skill.targetType}`)}</span>
                 </div>
                 {skill.cooldown !== undefined && (
                   <div className={styles.skillMetaItem}>
@@ -240,12 +241,12 @@ export default async function ItemPage({ params }: ItemPageProps) {
               <div className={styles.dungeonMeta}>
                 <div className={styles.dungeonMetaItem}>
                   <span className={styles.dungeonMetaLabel}>{t('dungeonType')}</span>
-                  <span className={styles.dungeonMetaValue}>{dungeon.type}</span>
+                  <span className={styles.dungeonMetaValue}>{tEnums(`dungeonType.${dungeon.type}`)}</span>
                 </div>
                 <div className={styles.dungeonMetaItem}>
                   <span className={styles.dungeonMetaLabel}>{t('difficulty')}</span>
                   <span className={`${styles.dungeonMetaValue} ${styles[`difficulty${dungeon.difficulty.charAt(0).toUpperCase() + dungeon.difficulty.slice(1)}`]}`}>
-                    {dungeon.difficulty}
+                    {tEnums(`difficulty.${dungeon.difficulty}`)}
                   </span>
                 </div>
                 {dungeon.recommendedLevel !== undefined && (

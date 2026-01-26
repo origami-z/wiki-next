@@ -59,6 +59,7 @@ function getBadgeClass(value: string, type: string): string {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, gameSlug, categorySlug } = await params;
   const t = await getTranslations('category');
+  const tEnums = await getTranslations('enums');
 
   let gameMeta;
   try {
@@ -130,7 +131,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   {/* Rarity badge for heroes */}
                   {hero.rarity && (
                     <span className={`${styles.rarityBadge} ${getBadgeClass(hero.rarity, 'rarity')}`}>
-                      {hero.rarity}
+                      {tEnums(`rarity.${hero.rarity}`)}
                     </span>
                   )}
                 </div>
@@ -141,13 +142,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   {hero.tier && hero.element && (
                     <div className={styles.badgeRow}>
                       <span className={`${styles.tierBadge} ${getBadgeClass(hero.tier, 'tier')}`}>
-                        {hero.tier}
+                        {tEnums(`tier.${hero.tier}`)}
                       </span>
                       <span className={`${styles.elementBadge} ${getBadgeClass(hero.element, 'element')}`}>
-                        {hero.element}
+                        {tEnums(`element.${hero.element}`)}
                       </span>
                       {hero.role && (
-                        <span className={styles.roleBadge}>{hero.role}</span>
+                        <span className={styles.roleBadge}>{tEnums(`role.${hero.role}`)}</span>
                       )}
                     </div>
                   )}
@@ -155,21 +156,21 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   {/* Skill specific info */}
                   {skill.type && skill.targetType && !hero.tier && (
                     <div className={styles.badgeRow}>
-                      <span className={styles.badge}>{skill.type}</span>
+                      <span className={styles.badge}>{tEnums(`skillType.${skill.type}`)}</span>
                       {skill.element && (
                         <span className={`${styles.elementBadge} ${getBadgeClass(skill.element, 'element')}`}>
-                          {skill.element}
+                          {tEnums(`element.${skill.element}`)}
                         </span>
                       )}
-                      <span className={styles.badge}>{skill.targetType}</span>
+                      <span className={styles.badge}>{tEnums(`targetType.${skill.targetType}`)}</span>
                     </div>
                   )}
 
                   {/* Dungeon specific info */}
                   {dungeon.type && dungeon.difficulty && !hero.tier && !skill.targetType && (
                     <div className={styles.badgeRow}>
-                      <span className={styles.badge}>{dungeon.type}</span>
-                      <span className={styles.badge}>{dungeon.difficulty}</span>
+                      <span className={styles.badge}>{tEnums(`dungeonType.${dungeon.type}`)}</span>
+                      <span className={styles.badge}>{tEnums(`difficulty.${dungeon.difficulty}`)}</span>
                     </div>
                   )}
 
