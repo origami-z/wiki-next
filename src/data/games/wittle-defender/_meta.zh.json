@@ -1,0 +1,22 @@
+{
+  "name": "小小守护者",
+  "description": "一款Roguelike英雄防御游戏，拥有90+位独特技能的英雄、元素战斗系统和挑战性副本。",
+  "categories": [
+    {
+      "name": "英雄",
+      "description": "收集和升级拥有独特能力和元素力量的英雄"
+    },
+    {
+      "name": "副本",
+      "description": "探索具有独特机制和丰厚奖励的挑战副本"
+    },
+    {
+      "name": "技能",
+      "description": "掌握强大的元素技能和辅助能力"
+    },
+    {
+      "name": "机制",
+      "description": "了解游戏机制和系统"
+    }
+  ]
+}

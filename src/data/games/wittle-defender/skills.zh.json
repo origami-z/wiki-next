@@ -1,0 +1,122 @@
+{
+  "skill-001": {
+    "name": "烈焰斩",
+    "description": "用炽热之刃斩击敌人，造成火焰伤害并施加灼烧效果。"
+  },
+  "skill-002": {
+    "name": "炽焰护盾",
+    "description": "创造火焰护盾，吸收伤害并灼烧攻击者。"
+  },
+  "skill-003": {
+    "name": "霜冻新星",
+    "description": "释放冰冻能量爆发，对所有敌人造成伤害并减速。"
+  },
+  "skill-004": {
+    "name": "冰霜牢笼",
+    "description": "将目标封入冰中，眩晕并降低其防御。"
+  },
+  "skill-005": {
+    "name": "雷霆一击",
+    "description": "召唤强力雷电打击单个敌人。"
+  },
+  "skill-006": {
+    "name": "风暴冲锋",
+    "description": "以闪电般的速度冲向敌人，造成巨大伤害。"
+  },
+  "skill-007": {
+    "name": "毒雾",
+    "description": "散布毒云，对所有敌人造成持续伤害。"
+  },
+  "skill-008": {
+    "name": "毒牙",
+    "description": "用毒牙撕咬目标，施加叠加毒素。"
+  },
+  "skill-009": {
+    "name": "治疗波浪",
+    "description": "发出治疗能量波，恢复所有盟友生命值。"
+  },
+  "skill-010": {
+    "name": "水之护盾",
+    "description": "用保护性水幕包围盟友。"
+  },
+  "skill-011": {
+    "name": "神圣祝福",
+    "description": "引导圣光治疗并增益所有盟友。"
+  },
+  "skill-012": {
+    "name": "圣光打击",
+    "description": "以神圣力量打击，对黑暗敌人造成额外伤害。"
+  },
+  "skill-013": {
+    "name": "暗影打击",
+    "description": "从暗影中发动致命精准打击，无视部分防御。"
+  },
+  "skill-014": {
+    "name": "灵魂收割",
+    "description": "收割敌人灵魂，对低生命目标造成巨大伤害。"
+  },
+  "skill-015": {
+    "name": "石肤",
+    "description": "硬化皮肤以吸收大量伤害。"
+  },
+  "skill-016": {
+    "name": "地震",
+    "description": "震动大地，对所有敌人造成伤害并眩晕。"
+  },
+  "skill-017": {
+    "name": "风之加速",
+    "description": "引导风力提升所有盟友速度。"
+  },
+  "skill-018": {
+    "name": "空灵身法",
+    "description": "增加闪避几率的被动敏捷。"
+  },
+  "skill-019": {
+    "name": "龙息",
+    "description": "喷出毁灭性火焰吞噬所有敌人。"
+  },
+  "skill-020": {
+    "name": "龙鳞",
+    "description": "减少受到伤害的被动护甲鳞片。"
+  },
+  "skill-021": {
+    "name": "毒蛇咬击",
+    "description": "快速毒蛇咬击施加毒素。"
+  },
+  "skill-022": {
+    "name": "水晶恢复",
+    "description": "引导水晶能量治疗并净化盟友。"
+  },
+  "skill-023": {
+    "name": "圣光之箭",
+    "description": "发射注入神圣光芒的箭矢。"
+  },
+  "skill-024": {
+    "name": "箭雨",
+    "description": "向所有敌人降下圣光箭雨。"
+  },
+  "skill-025": {
+    "name": "梦魇之刃",
+    "description": "用恐惧之刃打击，降低敌人命中率。"
+  },
+  "skill-026": {
+    "name": "根须束缚",
+    "description": "召唤根须束缚并持续伤害敌人。"
+  },
+  "skill-027": {
+    "name": "雷暴",
+    "description": "召唤风暴用雷电打击所有敌人。"
+  },
+  "skill-028": {
+    "name": "静电场",
+    "description": "创造电场减速并伤害敌人。"
+  },
+  "skill-029": {
+    "name": "狂战士之怒",
+    "description": "进入狂暴状态，生命值越低力量越强。"
+  },
+  "skill-030": {
+    "name": "炼狱打击",
+    "description": "释放所有积累的怒火于一次毁灭性打击。"
+  }
+}

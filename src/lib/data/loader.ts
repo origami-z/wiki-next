@@ -1,6 +1,6 @@
 /**
  * JSON data loader with React cache for server-side data fetching
- * Loads game data from file-based JSON storage
+ * Loads game data from file-based JSON storage with i18n support
  */
 
 import { cache } from 'react';
@@ -11,16 +11,81 @@ import type { GameMeta, GameEntity, GameData } from '@/types/game';
 // Data directory path
 const DATA_DIR = path.join(process.cwd(), 'src', 'data', 'games');
 
+// Default locale (used as base data)
+const DEFAULT_LOCALE = 'en';
+
 /**
- * Load game metadata (_meta.json)
+ * Deep merge two objects, with source overriding target for matching keys
+ * Only merges translatable text fields (name, description)
+ */
+function mergeTranslations<T>(target: T, source: Partial<T>): T {
+  if (!source) return target;
+
+  const result = { ...target } as T;
+
+  // Only merge specific translatable fields
+  const translatableFields = ['name', 'description'] as const;
+
+  for (const field of translatableFields) {
+    if (field in source && (source as Record<string, unknown>)[field] !== undefined) {
+      (result as Record<string, unknown>)[field] = (source as Record<string, unknown>)[field];
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Try to load a locale-specific file, returns null if not found
+ */
+async function tryLoadLocaleFile<T>(filePath: string): Promise<T | null> {
+  try {
+    const content = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(content) as T;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Load game metadata (_meta.json) with locale support
  * Cached per request for performance
  */
-export const loadGameMeta = cache(async (gameSlug: string): Promise<GameMeta> => {
-  const metaPath = path.join(DATA_DIR, gameSlug, '_meta.json');
+export const loadGameMeta = cache(async (gameSlug: string, locale: string = DEFAULT_LOCALE): Promise<GameMeta> => {
+  const basePath = path.join(DATA_DIR, gameSlug, '_meta.json');
+  const localePath = path.join(DATA_DIR, gameSlug, `_meta.${locale}.json`);
 
   try {
-    const content = await fs.readFile(metaPath, 'utf-8');
-    return JSON.parse(content) as GameMeta;
+    const content = await fs.readFile(basePath, 'utf-8');
+    const baseMeta = JSON.parse(content) as GameMeta;
+
+    // If locale is default or same as base, return base data
+    if (locale === DEFAULT_LOCALE) {
+      return baseMeta;
+    }
+
+    // Try to load locale-specific overrides
+    const localeOverrides = await tryLoadLocaleFile<Partial<GameMeta>>(localePath);
+
+    if (localeOverrides) {
+      // Merge locale overrides with base data
+      const mergedMeta = mergeTranslations(baseMeta, localeOverrides);
+
+      // Also merge category translations if present
+      if (localeOverrides.categories && baseMeta.categories) {
+        mergedMeta.categories = baseMeta.categories.map((baseCategory, index) => {
+          const localeCategory = localeOverrides.categories?.[index];
+          if (localeCategory) {
+            return mergeTranslations(baseCategory, localeCategory);
+          }
+          return baseCategory;
+        });
+      }
+
+      return mergedMeta;
+    }
+
+    return baseMeta;
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       throw new Error(`Game metadata not found: ${gameSlug}`);
@@ -30,19 +95,42 @@ export const loadGameMeta = cache(async (gameSlug: string): Promise<GameMeta> =>
 });
 
 /**
- * Load entities of a specific type (heroes.json, dungeons.json, etc.)
+ * Load entities of a specific type with locale support
  * Cached per request for performance
  */
 export const loadEntities = cache(
   async <T extends GameEntity = GameEntity>(
     gameSlug: string,
-    entityType: string
+    entityType: string,
+    locale: string = DEFAULT_LOCALE
   ): Promise<T[]> => {
-    const entityPath = path.join(DATA_DIR, gameSlug, `${entityType}.json`);
+    const basePath = path.join(DATA_DIR, gameSlug, `${entityType}.json`);
+    const localePath = path.join(DATA_DIR, gameSlug, `${entityType}.${locale}.json`);
 
     try {
-      const content = await fs.readFile(entityPath, 'utf-8');
-      return JSON.parse(content) as T[];
+      const content = await fs.readFile(basePath, 'utf-8');
+      const baseEntities = JSON.parse(content) as T[];
+
+      // If locale is default, return base data
+      if (locale === DEFAULT_LOCALE) {
+        return baseEntities;
+      }
+
+      // Try to load locale-specific overrides
+      const localeOverrides = await tryLoadLocaleFile<Record<string, Partial<T>>>(localePath);
+
+      if (localeOverrides) {
+        // Merge locale overrides with base entities (keyed by id or slug)
+        return baseEntities.map((entity) => {
+          const override = localeOverrides[entity.id] || localeOverrides[entity.slug];
+          if (override) {
+            return mergeTranslations(entity, override);
+          }
+          return entity;
+        });
+      }
+
+      return baseEntities;
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
         throw new Error(`Entity type not found: ${gameSlug}/${entityType}`);
@@ -53,26 +141,27 @@ export const loadEntities = cache(
 );
 
 /**
- * Load a single entity by slug
+ * Load a single entity by slug with locale support
  * Cached per request for performance
  */
 export const loadEntityBySlug = cache(
   async <T extends GameEntity = GameEntity>(
     gameSlug: string,
     entityType: string,
-    entitySlug: string
+    entitySlug: string,
+    locale: string = DEFAULT_LOCALE
   ): Promise<T | null> => {
-    const entities = await loadEntities<T>(gameSlug, entityType);
+    const entities = await loadEntities<T>(gameSlug, entityType, locale);
     return entities.find((entity) => entity.slug === entitySlug) || null;
   }
 );
 
 /**
- * Load all game data (metadata + all entities)
+ * Load all game data (metadata + all entities) with locale support
  * Cached per request for performance
  */
-export const loadGameData = cache(async (gameSlug: string): Promise<GameData> => {
-  const meta = await loadGameMeta(gameSlug);
+export const loadGameData = cache(async (gameSlug: string, locale: string = DEFAULT_LOCALE): Promise<GameData> => {
+  const meta = await loadGameMeta(gameSlug, locale);
   const entities: Record<string, GameEntity[]> = {};
 
   // Load all entity types defined in metadata
@@ -81,7 +170,8 @@ export const loadGameData = cache(async (gameSlug: string): Promise<GameData> =>
       try {
         entities[category.entityType] = await loadEntities(
           gameSlug,
-          category.entityType
+          category.entityType,
+          locale
         );
       } catch (error) {
         console.warn(`Failed to load ${category.entityType}:`, error);
@@ -94,11 +184,11 @@ export const loadGameData = cache(async (gameSlug: string): Promise<GameData> =>
 });
 
 /**
- * Get list of all available games
+ * Get list of all available games with locale support
  * Scans the data directory for game folders
  * Cached per request for performance
  */
-export const loadAvailableGames = cache(async (): Promise<GameMeta[]> => {
+export const loadAvailableGames = cache(async (locale: string = DEFAULT_LOCALE): Promise<GameMeta[]> => {
   try {
     const entries = await fs.readdir(DATA_DIR, { withFileTypes: true });
     const gameMetaList: GameMeta[] = [];
@@ -108,7 +198,7 @@ export const loadAvailableGames = cache(async (): Promise<GameMeta[]> => {
         .filter((entry) => entry.isDirectory())
         .map(async (entry) => {
           try {
-            const meta = await loadGameMeta(entry.name);
+            const meta = await loadGameMeta(entry.name, locale);
             gameMetaList.push(meta);
           } catch (error) {
             console.warn(`Failed to load game metadata for ${entry.name}:`, error);
@@ -124,16 +214,17 @@ export const loadAvailableGames = cache(async (): Promise<GameMeta[]> => {
 });
 
 /**
- * Search entities by query string
+ * Search entities by query string with locale support
  * Searches in name and description fields
  */
 export const searchEntities = cache(
   async <T extends GameEntity = GameEntity>(
     gameSlug: string,
     entityType: string,
-    query: string
+    query: string,
+    locale: string = DEFAULT_LOCALE
   ): Promise<T[]> => {
-    const entities = await loadEntities<T>(gameSlug, entityType);
+    const entities = await loadEntities<T>(gameSlug, entityType, locale);
     const normalizedQuery = query.toLowerCase().trim();
 
     if (!normalizedQuery) {
@@ -149,15 +240,16 @@ export const searchEntities = cache(
 );
 
 /**
- * Filter entities by custom predicate
+ * Filter entities by custom predicate with locale support
  */
 export const filterEntities = cache(
   async <T extends GameEntity = GameEntity>(
     gameSlug: string,
     entityType: string,
-    predicate: (entity: T) => boolean
+    predicate: (entity: T) => boolean,
+    locale: string = DEFAULT_LOCALE
   ): Promise<T[]> => {
-    const entities = await loadEntities<T>(gameSlug, entityType);
+    const entities = await loadEntities<T>(gameSlug, entityType, locale);
     return entities.filter(predicate);
   }
 );
