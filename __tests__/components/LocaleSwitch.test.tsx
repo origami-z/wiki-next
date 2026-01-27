@@ -1,21 +1,22 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { vi, Mock } from 'vitest';
 import { LocaleSwitch } from '@/components/features/LocaleSwitch';
 
-// Mock functions need to be defined before the jest.mock calls
-const mockReplace = jest.fn();
-const mockUsePathname = jest.fn();
-const mockUseRouter = jest.fn(() => ({
+// Mock functions need to be defined before the vi.mock calls
+const mockReplace = vi.fn();
+const mockUsePathname = vi.fn();
+const mockUseRouter = vi.fn(() => ({
   replace: mockReplace,
 }));
 
 // Mock next-intl
-jest.mock('next-intl', () => ({
-  useLocale: jest.fn(),
-  useTranslations: jest.fn(),
+vi.mock('next-intl', () => ({
+  useLocale: vi.fn(),
+  useTranslations: vi.fn(),
 }));
 
 // Mock next-intl/navigation
-jest.mock('@/i18n/routing', () => ({
+vi.mock('@/i18n/routing', () => ({
   useRouter: () => mockUseRouter(),
   usePathname: () => mockUsePathname(),
 }));
@@ -25,14 +26,14 @@ import { useLocale, useTranslations } from 'next-intl';
 
 describe('LocaleSwitch Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     mockUsePathname.mockReturnValue('/');
   });
 
   describe('English locale (en)', () => {
     beforeEach(() => {
-      (useLocale as jest.Mock).mockReturnValue('en');
-      (useTranslations as jest.Mock).mockReturnValue((key: string) => {
+      (useLocale as Mock).mockReturnValue('en');
+      (useTranslations as Mock).mockReturnValue((key: string) => {
         const translations: Record<string, string> = {
           switchLocale: 'Switch language',
           english: 'English',
@@ -71,8 +72,8 @@ describe('LocaleSwitch Component', () => {
 
   describe('Chinese locale (zh)', () => {
     beforeEach(() => {
-      (useLocale as jest.Mock).mockReturnValue('zh');
-      (useTranslations as jest.Mock).mockReturnValue((key: string) => {
+      (useLocale as Mock).mockReturnValue('zh');
+      (useTranslations as Mock).mockReturnValue((key: string) => {
         const translations: Record<string, string> = {
           switchLocale: '切换语言',
           english: 'English',
@@ -111,8 +112,8 @@ describe('LocaleSwitch Component', () => {
 
   describe('Pathname preservation', () => {
     beforeEach(() => {
-      (useLocale as jest.Mock).mockReturnValue('en');
-      (useTranslations as jest.Mock).mockReturnValue((key: string) => key);
+      (useLocale as Mock).mockReturnValue('en');
+      (useTranslations as Mock).mockReturnValue((key: string) => key);
     });
 
     test('should preserve current pathname when switching locale', () => {
